@@ -1,8 +1,8 @@
-/[Ll]ibrary/
-/[Tt]emp/
-/[Oo]bj/
-/[Bb]uild/
-/[Bb]uilds/
+/Library/
+/Temp/
+/Obj/
+/Build/
+/Builds/
 /Assets/AssetStoreTools*
 
 # Visual Studio 2015 cache directory
@@ -32,3 +32,7 @@ sysinfo.txt
 # Builds
 *.apk
 *.unitypackage
+panda_warriors_game/Library/
+panda_warriors_game/.vs/
+panda_warriors_game/UnityPackageManager/
+panda_warriors_game/Temp/UnityLockfile
