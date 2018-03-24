@@ -26,7 +26,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1653651118251588
 GameObject:
   m_ObjectHideFlags: 0
@@ -39,8 +39,9 @@ GameObject:
   - component: {fileID: 65163311266339008}
   - component: {fileID: 23038181244926768}
   - component: {fileID: 114161502062984148}
-  - component: {fileID: 114924508273259616}
   - component: {fileID: 114931027435045586}
+  - component: {fileID: 114924508273259616}
+  - component: {fileID: 114071228458931964}
   m_Layer: 0
   m_Name: Piramidos
   m_TagString: Player
@@ -99,7 +100,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1653651118251588}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 39.73, y: 4, z: 24.19}
+  m_LocalPosition: {x: 0, y: 6, z: 0}
   m_LocalScale: {x: 2, y: 4, z: 2}
   m_Children:
   - {fileID: 4545537259534118}
@@ -237,6 +238,24 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &114071228458931964
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1653651118251588}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d89467100bd2e245a089097cc204aea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 0
+  damage: 0
+  costInCrystals: 0
+  costInScrap: 0
+  costInAntimatter: 0
+  spawnTime: 0
+  speed: 0
 --- !u!114 &114161502062984148
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -259,8 +278,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d97b81056152da4ebace951a9ce7fcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
   ray_range: 10000
+  agent: {fileID: 0}
 --- !u!114 &114931027435045586
 MonoBehaviour:
   m_ObjectHideFlags: 1

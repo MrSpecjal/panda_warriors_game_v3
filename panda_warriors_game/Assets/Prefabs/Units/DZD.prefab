@@ -41,8 +41,9 @@ GameObject:
   - component: {fileID: 65377392611956282}
   - component: {fileID: 23157530392755372}
   - component: {fileID: 114491307284416970}
-  - component: {fileID: 114065127868549514}
   - component: {fileID: 114997599051835258}
+  - component: {fileID: 114065127868549514}
+  - component: {fileID: 114593925829584774}
   m_Layer: 0
   m_Name: DZD
   m_TagString: Player
@@ -65,7 +66,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4019792790698488
 Transform:
   m_ObjectHideFlags: 1
@@ -99,7 +100,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1539792056631816}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 74.41672, y: 4, z: 16.171867}
+  m_LocalPosition: {x: 0, y: 6, z: 0}
   m_LocalScale: {x: 2, y: 4, z: 2}
   m_Children:
   - {fileID: 4446346590357176}
@@ -248,8 +249,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d97b81056152da4ebace951a9ce7fcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
   ray_range: 10000
+  agent: {fileID: 0}
 --- !u!114 &114491307284416970
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -261,6 +262,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 799566479dc177242b9aacb9afdfe56b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114593925829584774
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1539792056631816}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d89467100bd2e245a089097cc204aea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 0
+  damage: 0
+  costInCrystals: 0
+  costInScrap: 0
+  costInAntimatter: 0
+  spawnTime: 0
+  speed: 0
 --- !u!114 &114997599051835258
 MonoBehaviour:
   m_ObjectHideFlags: 1

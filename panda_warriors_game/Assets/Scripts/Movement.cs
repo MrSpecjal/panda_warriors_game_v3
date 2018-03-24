@@ -57,9 +57,9 @@ namespace GameCore.Player
 
         void MovingPlayer() //pilnuje zeby jednostka sie poruszala do momentu az dotrze do nowej pozycji
         {
-            //transform.LookAt(targetPosition);
-            //transform.position = Vector3.MoveTowards(transform.position, targetPosition, speed * Time.deltaTime);
-            agent.destination = Vector3.MoveTowards(transform.position, targetPosition, speed * 1000 * Time.deltaTime);
+            transform.LookAt(targetPosition);
+            transform.position = Vector3.MoveTowards(transform.position, targetPosition, speed * Time.deltaTime);
+            //agent.destination = Vector3.MoveTowards(transform.position, targetPosition, speed * 1000 * Time.deltaTime);
             if (transform.position == targetPosition)
                 isMoving = false;
 

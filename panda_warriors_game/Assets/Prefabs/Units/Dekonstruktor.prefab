@@ -26,7 +26,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1477307440208362
 GameObject:
   m_ObjectHideFlags: 0
@@ -39,8 +39,9 @@ GameObject:
   - component: {fileID: 65355351891435308}
   - component: {fileID: 23380857274604112}
   - component: {fileID: 114957352851038270}
-  - component: {fileID: 114625028119085344}
   - component: {fileID: 114266849207937112}
+  - component: {fileID: 114625028119085344}
+  - component: {fileID: 114238955819648268}
   m_Layer: 0
   m_Name: Dekonstruktor
   m_TagString: Player
@@ -86,7 +87,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1477307440208362}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 39.73, y: 4, z: 24.19}
+  m_LocalPosition: {x: 0, y: 6, z: 0}
   m_LocalScale: {x: 2, y: 4, z: 2}
   m_Children:
   - {fileID: 4402484487446592}
@@ -237,6 +238,24 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &114238955819648268
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1477307440208362}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d89467100bd2e245a089097cc204aea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 0
+  damage: 0
+  costInCrystals: 0
+  costInScrap: 0
+  costInAntimatter: 0
+  spawnTime: 0
+  speed: 0
 --- !u!114 &114266849207937112
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -259,8 +278,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d97b81056152da4ebace951a9ce7fcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
   ray_range: 10000
+  agent: {fileID: 0}
 --- !u!114 &114957352851038270
 MonoBehaviour:
   m_ObjectHideFlags: 1

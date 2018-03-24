@@ -10,6 +10,6 @@ namespace GameCore.Player
         public int costInCrystals;
         public int costInScrap;
         public int costInAntymaterya;
-        public int buildingTime;
+        public float buildingTime;
     }
 }

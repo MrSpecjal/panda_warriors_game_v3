@@ -26,7 +26,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1782013491574362
 GameObject:
   m_ObjectHideFlags: 0
@@ -39,8 +39,9 @@ GameObject:
   - component: {fileID: 65187090934026958}
   - component: {fileID: 23525755101274244}
   - component: {fileID: 114801061424176128}
-  - component: {fileID: 114150695879985760}
   - component: {fileID: 114198326593558246}
+  - component: {fileID: 114150695879985760}
+  - component: {fileID: 114271693716694016}
   m_Layer: 0
   m_Name: Ergatis
   m_TagString: Player
@@ -73,7 +74,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1782013491574362}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 39.73, y: 4, z: 24.19}
+  m_LocalPosition: {x: 0, y: 6, z: 0}
   m_LocalScale: {x: 2, y: 4, z: 2}
   m_Children:
   - {fileID: 4614283858191046}
@@ -248,8 +249,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d97b81056152da4ebace951a9ce7fcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
   ray_range: 10000
+  agent: {fileID: 0}
 --- !u!114 &114198326593558246
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -261,6 +262,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2384ea76ebf35a146aaba1ce6f1f3b8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114271693716694016
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1782013491574362}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d89467100bd2e245a089097cc204aea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 0
+  damage: 0
+  costInCrystals: 0
+  costInScrap: 0
+  costInAntimatter: 0
+  spawnTime: 0
+  speed: 0
 --- !u!114 &114801061424176128
 MonoBehaviour:
   m_ObjectHideFlags: 1
