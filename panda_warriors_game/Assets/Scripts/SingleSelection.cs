@@ -22,21 +22,35 @@ namespace GameCore.Player
 
             if (Input.GetMouseButton(leftMouseButton)) 
             {
-                if (Physics.Raycast(ray, out hit, rayRange))
+                if (Input.GetKey(KeyCode.LeftShift))
                 {
-                    if (hit.collider.tag == "Player" || hit.collider.tag == "Centrum Dowodzenia") 
+                    if (Physics.Raycast(ray, out hit, rayRange))
                     {
-                        transform.GetChild(0).gameObject.SetActive(false);
-                        hit.transform.GetChild(0).gameObject.SetActive(true);
-                    }
-                    else 
-                    {
-                        transform.GetChild(0).gameObject.SetActive(false); 
+                        if (hit.collider.tag == "Player" || hit.collider.tag == "Centrum Dowodzenia")
+                        {
+                            hit.transform.GetChild(0).gameObject.SetActive(true);
+                        }
                     }
                 }
-                else 
+
+                else
                 {
-                    transform.GetChild(0).gameObject.SetActive(false); 
+                    if (Physics.Raycast(ray, out hit, rayRange))
+                    {
+                        if (hit.collider.tag == "Player" || hit.collider.tag == "Centrum Dowodzenia")
+                        {
+                            transform.GetChild(0).gameObject.SetActive(false);
+                            hit.transform.GetChild(0).gameObject.SetActive(true);
+                        }
+                        else
+                        {
+                            transform.GetChild(0).gameObject.SetActive(false);
+                        }
+                    }
+                    else
+                    {
+                        transform.GetChild(0).gameObject.SetActive(false);
+                    }
                 }
             }
         }
