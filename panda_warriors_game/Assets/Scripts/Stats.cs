@@ -8,7 +8,7 @@ namespace GameCore.Player
         {
             int crystals = 0;
             int scrap = 0;
-            int antymatery = 0;
+            int antimatter = 0;
         }
 
         public static class Robotnik
