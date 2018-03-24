@@ -1,41 +1,51 @@
 fileFormatVersion: 2
-guid: 848f372cbf26a2d4e8b7f86d4215250a
-timeCreated: 1521406705
+guid: 44bff259ce5d68046afc4e2b51a3a67f
+timeCreated: 1521915375
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
     100000: Armature
-    100002: Bone
-    100004: //RootNode
-    100006: EngineerUnitsFactory
-    100008: LWall
-    100010: LWall_end
-    100012: Platform
-    100014: Platform_end
-    100016: RWall
-    100018: RWall_end
+    100002: BodyUp
+    100004: Bone
+    100006: //RootNode
+    100008: EngineerL2
+    100010: Gun
+    100012: Gun_end
+    100014: LBody
+    100016: LBody_end
+    100018: RBody
+    100020: RBody_end
     400000: Armature
-    400002: Bone
-    400004: //RootNode
-    400006: EngineerUnitsFactory
-    400008: LWall
-    400010: LWall_end
-    400012: Platform
-    400014: Platform_end
-    400016: RWall
-    400018: RWall_end
-    4300000: EngineerUnitsFactory
-    7400000: Armature|Building
-    7400002: Armature|None
+    400002: BodyUp
+    400004: Bone
+    400006: //RootNode
+    400008: EngineerL2
+    400010: Gun
+    400012: Gun_end
+    400014: LBody
+    400016: LBody_end
+    400018: RBody
+    400020: RBody_end
+    4300000: EngineerL2
+    7400000: Armature|Folding
+    7400002: Armature|OffActive
+    7400004: Armature|OnActive
+    7400006: Armature|OnActive_Move
+    7400008: Armature|Spreading
     9500000: //RootNode
-    13700000: EngineerUnitsFactory
+    13700000: EngineerL2
   externalObjects:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: EngineerUnitsFactory
-    second: {fileID: 2100000, guid: 8cd4b8c08489ac549b9a3a3f35b057fc, type: 2}
+      name: EngineerL2
+    second: {fileID: 2100000, guid: 304e2b3e11e48124ab43df33d386fe3b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: EngineerL2Color
+    second: {fileID: 2100000, guid: 7f46083ff809ef84ab7f43002fdd59c2, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

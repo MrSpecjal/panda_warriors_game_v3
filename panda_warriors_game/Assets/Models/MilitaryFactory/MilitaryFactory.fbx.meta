@@ -36,6 +36,7 @@ ModelImporter:
     100056: Bone
     100058: Cube
     100060: //RootNode
+    100062: MilitaryFactory
     400000: 1TelescopicBuilder.001
     400002: 1TelescopicBuilder.002
     400004: 1TelescopicBuilder.003
@@ -67,7 +68,9 @@ ModelImporter:
     400056: Bone
     400058: Cube
     400060: //RootNode
+    400062: MilitaryFactory
     4300000: Cube
+    4300002: MilitaryFactory
     7400000: Armature|Leve1_UP
     7400002: Armature|Level2_Build
     7400004: Armature|Level2_Up
@@ -75,14 +78,22 @@ ModelImporter:
     7400008: Armature|Level3_Up
     7400010: Armature|Lever1_Build
     7400012: Armature|None
+    7400014: Armature|Level1_Build
+    7400016: Armature|Level1_Up
     9500000: //RootNode
     13700000: Cube
+    13700002: MilitaryFactory
   externalObjects:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: MilitaryFactory
     second: {fileID: 2100000, guid: c769f742905dc534fb07b98e89e2be2b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MilitaryFactoryColor
+    second: {fileID: 2100000, guid: 192cda250c78c5246b38d5c3c6992753, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
