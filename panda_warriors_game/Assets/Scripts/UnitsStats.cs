@@ -7,7 +7,7 @@
         int spawnTime;
         int costInCrystals;
         int costInScrap;
-        int costInAntymatery;
+        int costInAntimatter;
         float speed;
     }
 }
