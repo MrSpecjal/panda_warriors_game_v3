@@ -6,10 +6,10 @@ namespace GameCore.Player
 {
     public class BuildingsStats : MonoBehaviour
     {
-        public int hp;
-        public int costInKrysztaly;
-        public int costInZlom;
-        public int costInAntymateria;
+        public int health;
+        public int costInCrystals;
+        public int costInScrap;
+        public int costInAntymaterya;
         public int buildingTime;
     }
 }

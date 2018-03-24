@@ -6,74 +6,74 @@ namespace GameCore.Player
     {
         public class Player
         {
-            int krysztaly = 0;
-            int zlom = 0;
-            int antymateria = 0;
+            int crystals = 0;
+            int scrap = 0;
+            int antymatery = 0;
         }
 
         public static class Robotnik
         {
-            static int hp = 50;
+            static int health = 50;
         }
 
         public static class Dekonstruktor
         {
-            static int hp = 100;
+            static int health = 100;
         }
 
         public static class Ergatis
         {
-            static int hp = 100;
-            static int dmg = 20;
+            static int health = 100;
+            static int damage = 20;
         }
 
         public static class Asystent
         {
-            static int hp = 180;
-            static int dmg = 30;
+            static int health = 180;
+            static int damage = 30;
         }
 
         public static class Piramidos
         {
-            static int hp = 200;
-            static int dmg = 45;
+            static int health = 200;
+            static int damage = 45;
         }
 
         public static class DZD
         {
-            static int hp = 250;
-            static int dmg = 80;
+            static int health = 250;
+            static int damage = 80;
         }
 
         public static class P4TK
         {
-            static int hp = 500;
-            static int dmg = 120;
+            static int health = 500;
+            static int damage = 120;
         }
 
         public static class CentrumDowodzenia
         {
-            static int hp = 5000;
+            static int health = 5000;
         }
 
         public static class Koszary
         {
-            static int hp = 1000;
+            static int health = 1000;
         }
 
         public static class Zbrojownia
         {
-            static int hp = 1000;
+            static int health = 1000;
         }
 
         public static class Instytut
         {
-            static int hp = 1000;
+            static int health = 1000;
         }
 
         public static class Reaktor
         {
-            static int hp = 600;
+            static int health = 600;
         }
     }
 }
