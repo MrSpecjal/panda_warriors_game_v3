@@ -1,25 +1,28 @@
 ﻿using UnityEngine;
 
-public class UnitsRecruitement : MonoBehaviour {
-
-    bool notFree = false;
-    int rayRange = 1000;
-    public Object Ergatis;
-    Vector3 position = new Vector3(70, 5, 50); //do wywalenia jak bedzie system stawiania budynkow
-
-    private void Start()
+namespace GameCore.Player
+{
+    public class UnitsRecruitement : MonoBehaviour
     {
-        Vector3 position = transform.position;
-        position.z = position.z - 10;
-    }
+        bool notFree = false;
+        int rayRange = 1000;
+        public Object Ergatis;
+        Vector3 position = new Vector3(70, 5, 50); //do wywalenia jak bedzie system stawiania budynkow
 
-    void Update()
-    {
-        if (transform.GetChild(0).gameObject.activeSelf)
+        private void Start()
         {
-            if (Input.GetKeyUp(KeyCode.E))
+            Vector3 position = transform.position;
+            position.z = position.z - 10;
+        }
+
+        void Update()
+        {
+            if (transform.GetChild(0).gameObject.activeSelf)
             {
-                Instantiate(Ergatis, position, transform.rotation);
+                if (Input.GetKeyUp(KeyCode.E))
+                {
+                    Instantiate(Ergatis, position, transform.rotation);
+                }
             }
         }
     }

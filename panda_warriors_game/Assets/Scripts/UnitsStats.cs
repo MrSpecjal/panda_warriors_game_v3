@@ -2,12 +2,12 @@
 {
     public class UnitsStats
     {
-        int hp;
-        int dmg;
+        int health;
+        int damage;
         int spawnTime;
-        int costInKrysztaly;
-        int costInZlom;
-        int costInAntymateria;
+        int costInCrystals;
+        int costInScrap;
+        int costInAntymatery;
         float speed;
     }
 }
