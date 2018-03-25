@@ -1,114 +1,111 @@
 ﻿using UnityEngine;
 
-namespace GameCore.Player
+public class GroupSelection : MonoBehaviour
 {
-    public class GroupSelection : MonoBehaviour 
+    bool isSelecting = false;
+    Vector3 mousePosition;
+
+    void Update()
     {
-        bool isSelecting = false;
-        Vector3 mousePosition;
-
-        void Update()
+        if (Input.GetMouseButtonDown(0))
         {
-            if (Input.GetMouseButtonDown(0))
+            isSelecting = true;
+            mousePosition = Input.mousePosition;
+        }
+
+        if (Input.GetMouseButtonUp(0))
+        {
+            if (IsWithinSelectionBounds())
             {
-                isSelecting = true;
-                mousePosition = Input.mousePosition;
+                transform.GetChild(0).gameObject.SetActive(true);
             }
-            
-            if (Input.GetMouseButtonUp(0))
+            isSelecting = false;
+        }
+    }
+
+    void OnGUI()
+    {
+        if (isSelecting)
+        {
+            var rect = Utils.GetScreenRect(mousePosition, Input.mousePosition);
+            Utils.DrawScreenRect(rect, new Color(0.8f, 0.8f, 0.95f, 0.25f));
+            Utils.DrawScreenRectBorder(rect, 2, new Color(0.8f, 0.8f, 0.95f));
+        }
+    }
+
+    private bool IsWithinSelectionBounds()
+    {
+        if (!isSelecting)
+            return false;
+
+        Vector3 pozycja = gameObject.transform.position;
+
+        var camera = Camera.main;
+        var viewportBounds = Utils.GetViewportBounds(camera, mousePosition, Input.mousePosition);
+
+        return viewportBounds.Contains(camera.WorldToViewportPoint(pozycja));
+    }
+
+    public static class Utils
+    {
+        static Texture2D _whiteTexture;
+        public static Texture2D WhiteTexture
+        {
+            get
             {
-                if (IsWithinSelectionBounds())
+                if (_whiteTexture == null)
                 {
-                    transform.GetChild(0).gameObject.SetActive(true);
+                    _whiteTexture = new Texture2D(1, 1);
+                    _whiteTexture.SetPixel(0, 0, Color.white);
+                    _whiteTexture.Apply();
                 }
-                isSelecting = false;
+                return _whiteTexture;
             }
         }
 
-        void OnGUI()
+        public static Rect GetScreenRect(Vector3 screenPosition1, Vector3 screenPosition2)
         {
-            if (isSelecting)
-            {
-                var rect = Utils.GetScreenRect(mousePosition, Input.mousePosition);
-                Utils.DrawScreenRect(rect, new Color(0.8f, 0.8f, 0.95f, 0.25f));
-                Utils.DrawScreenRectBorder(rect, 2, new Color(0.8f, 0.8f, 0.95f));
-            }
+            screenPosition1.y = Screen.height - screenPosition1.y;
+            screenPosition2.y = Screen.height - screenPosition2.y;
+
+            var topLeft = Vector3.Min(screenPosition1, screenPosition2);
+            var bottomRight = Vector3.Max(screenPosition1, screenPosition2);
+            return Rect.MinMaxRect(topLeft.x, topLeft.y, bottomRight.x, bottomRight.y);
         }
 
-        private bool IsWithinSelectionBounds()
+        public static Bounds GetViewportBounds(Camera camera, Vector3 screenPosition1, Vector3 screenPosition2)
         {
-            if (!isSelecting)
-                return false;
+            var v1 = camera.ScreenToViewportPoint(screenPosition1);
+            var v2 = camera.ScreenToViewportPoint(screenPosition2);
+            var min = Vector3.Min(v1, v2);
+            var max = Vector3.Max(v1, v2);
+            min.z = camera.nearClipPlane;
+            max.z = camera.farClipPlane;
+            //min.z = 0.0f;
+            //max.z = 1.0f;
 
-            Vector3 pozycja = gameObject.transform.position;
-
-            var camera = Camera.main;
-            var viewportBounds = Utils.GetViewportBounds(camera, mousePosition, Input.mousePosition);
-
-            return viewportBounds.Contains(camera.WorldToViewportPoint(pozycja));
+            var bounds = new Bounds();
+            bounds.SetMinMax(min, max);
+            return bounds;
         }
 
-        public static class Utils
+        public static void DrawScreenRect(Rect rect, Color color)
         {
-            static Texture2D _whiteTexture;
-            public static Texture2D WhiteTexture
-            {
-                get
-                {
-                    if (_whiteTexture == null)
-                    {
-                        _whiteTexture = new Texture2D(1, 1);
-                        _whiteTexture.SetPixel(0, 0, Color.white);
-                        _whiteTexture.Apply();
-                    }
-                    return _whiteTexture;
-                }
-            }
+            GUI.color = color;
+            GUI.DrawTexture(rect, WhiteTexture);
+            GUI.color = Color.white;
+        }
 
-            public static Rect GetScreenRect(Vector3 screenPosition1, Vector3 screenPosition2)
-            {
-                screenPosition1.y = Screen.height - screenPosition1.y;
-                screenPosition2.y = Screen.height - screenPosition2.y;
-
-                var topLeft = Vector3.Min(screenPosition1, screenPosition2);
-                var bottomRight = Vector3.Max(screenPosition1, screenPosition2);
-                return Rect.MinMaxRect(topLeft.x, topLeft.y, bottomRight.x, bottomRight.y);
-            }
-
-            public static Bounds GetViewportBounds(Camera camera, Vector3 screenPosition1, Vector3 screenPosition2)
-            {
-                var v1 = camera.ScreenToViewportPoint(screenPosition1);
-                var v2 = camera.ScreenToViewportPoint(screenPosition2);
-                var min = Vector3.Min(v1, v2);
-                var max = Vector3.Max(v1, v2);
-                min.z = camera.nearClipPlane;
-                max.z = camera.farClipPlane;
-                //min.z = 0.0f;
-                //max.z = 1.0f;
-
-                var bounds = new Bounds();
-                bounds.SetMinMax(min, max);
-                return bounds;
-            }
-
-            public static void DrawScreenRect(Rect rect, Color color)
-            {
-                GUI.color = color;
-                GUI.DrawTexture(rect, WhiteTexture);
-                GUI.color = Color.white;
-            }
-
-            public static void DrawScreenRectBorder(Rect rect, float thickness, Color color)
-            {
-                // Top
-                Utils.DrawScreenRect(new Rect(rect.xMin, rect.yMin, rect.width, thickness), color);
-                // Left
-                Utils.DrawScreenRect(new Rect(rect.xMin, rect.yMin, thickness, rect.height), color);
-                // Right
-                Utils.DrawScreenRect(new Rect(rect.xMax - thickness, rect.yMin, thickness, rect.height), color);
-                // Bottom
-                Utils.DrawScreenRect(new Rect(rect.xMin, rect.yMax - thickness, rect.width, thickness), color);
-            }
+        public static void DrawScreenRectBorder(Rect rect, float thickness, Color color)
+        {
+            // Top
+            Utils.DrawScreenRect(new Rect(rect.xMin, rect.yMin, rect.width, thickness), color);
+            // Left
+            Utils.DrawScreenRect(new Rect(rect.xMin, rect.yMin, thickness, rect.height), color);
+            // Right
+            Utils.DrawScreenRect(new Rect(rect.xMax - thickness, rect.yMin, thickness, rect.height), color);
+            // Bottom
+            Utils.DrawScreenRect(new Rect(rect.xMin, rect.yMax - thickness, rect.width, thickness), color);
         }
     }
 }

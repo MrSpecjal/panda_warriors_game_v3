@@ -1,9 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class UnitsStats : MonoBehaviour {
-
+public class UnitsStats : MonoBehaviour
+{
     public int health;
     public int damage;
     public int costInCrystals;
