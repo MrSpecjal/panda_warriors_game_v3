@@ -1,4 +1,6 @@
-﻿public class BuildingsStats
+﻿using UnityEngine;
+
+public class BuildingsStats : MonoBehaviour
 {
     public int health;
     public int costInCrystals;
