@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
+using UnityEngine.AI;
 
 public class GatheringResources : MonoBehaviour
 {
@@ -8,10 +10,20 @@ public class GatheringResources : MonoBehaviour
     bool isEnded = true;
     bool onColisonEnter = false;
     bool isAnimationEnded = true;
+    bool isStarted = false;
     RaycastHit hit;
     Transform nearestBase;
     public Transform[] basePositions;
     public GameObject[] baseObjects;
+    public UIManager uIManager;
+    private IEnumerator coroutine;
+    NavMeshAgent navMeshAgent;
+
+    private void Start()
+    {
+        uIManager = FindObjectOfType<UIManager>();
+        navMeshAgent = GetComponent<NavMeshAgent>();
+    }
 
     private void Update()
     {
@@ -19,11 +31,14 @@ public class GatheringResources : MonoBehaviour
         {
             if (Input.GetMouseButtonUp(rightMouseButton))
             {
+                Debug.Log("clicked");
                 Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
                 if (Physics.Raycast(ray, out hit, rayRange))
                 {
                     if (hit.collider.tag == "Kryształy" || hit.collider.tag == "Wrak")
                     {
+                        Debug.Log("zbieranie");
+                        navMeshAgent.SetDestination(hit.point);
                         gathering = true;
                     }
                     else
@@ -35,11 +50,30 @@ public class GatheringResources : MonoBehaviour
         }
         if (gathering)
         {
-            Gathering();
+            coroutine = TempGathering(5.0f);
+            if (isStarted)
+            {                
+                StartCoroutine(coroutine);
+                isStarted = false;
+            }
+        }
+        else
+        {
+            StopAllCoroutines();
+            isStarted = true;
         }
     }
 
-    void Gathering()
+    private IEnumerator TempGathering(float delay)
+    {
+        while (true)
+        {
+            uIManager.AddCurrency(0, 10);
+            yield return new WaitForSeconds(delay);
+        }
+    }
+}
+  /*  void Gathering()
     {
         if (onColisonEnter == false)
         {
@@ -106,3 +140,5 @@ public class GatheringResources : MonoBehaviour
         }
     }
 }
+*/
+  

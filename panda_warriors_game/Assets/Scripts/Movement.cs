@@ -31,7 +31,8 @@ public class Movement : MonoBehaviour
                 {
                     if (proba.collider.tag == "Terrain")
                     {
-                        SetTargetPosition(); //wybiera nowa pozycje dla jednostki
+                        SetTargetPosition(proba.point
+                            ); //wybiera nowa pozycje dla jednostki
                     }
                 }
             }
@@ -41,16 +42,17 @@ public class Movement : MonoBehaviour
             MovingPlayer();
     }
 
-    void SetTargetPosition() //strzela niewidzialnym promieniem i ustawia w tym punkcie nowa pozycje dla jednostki
+    void SetTargetPosition(Vector3 position) //strzela niewidzialnym promieniem i ustawia w tym punkcie nowa pozycje dla jednostki
     {
-        Plane plane = new Plane(Vector3.up, transform.position);
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        float point = 0f;
+        agent.SetDestination(position);
+        //Plane plane = new Plane(Vector3.up, transform.position);
+        //Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        //float point = 0f;
 
-        if (plane.Raycast(ray, out point))
-            targetPosition = ray.GetPoint(point);
+        //if (plane.Raycast(ray, out point))
+            //targetPosition = ray.GetPoint(point);
 
-        isMoving = true;
+        //isMoving = true;
     }
 
     void MovingPlayer() //pilnuje zeby jednostka sie poruszala do momentu az dotrze do nowej pozycji

@@ -4,7 +4,6 @@ using UnityEditor;
 [CustomEditor(typeof(UnitFieldOfView))]
 public class UnitFieldOfViewEditor : Editor
 {
-
     void OnSceneGUI()
     {
         UnitFieldOfView fow = (UnitFieldOfView)target;

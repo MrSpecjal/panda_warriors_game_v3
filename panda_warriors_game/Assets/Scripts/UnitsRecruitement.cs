@@ -7,38 +7,34 @@ public class UnitsRecruitement : MonoBehaviour
     public Object Unit1;
     public Object Unit2;
     public Object Unit3;
-    Vector3 position = new Vector3(70, 5, 50); //do wywalenia jak bedzie system stawiania budynkow
+    public Transform spawnObject;
+    public Vector3 spawnpoint;
+    public UIManager uIManager;
 
     private void Start()
     {
+        uIManager = FindObjectOfType<UIManager>();
+        spawnpoint = spawnObject.transform.position;
         Vector3 position = transform.position;
         position.z = position.z - 10;
     }
-
-    void Update()
+    
+    public void Spawn(int id)
     {
-        if (transform.GetChild(0).gameObject.activeSelf)
+        uIManager.AddCurrency(0, -100);
+        switch (id)
         {
-            if (Input.GetKeyUp(KeyCode.E))
-            {
-                Instantiate(Unit1, position, transform.rotation);
-            }
-        }
+            case 0:
+                Instantiate(Unit1, spawnpoint, transform.rotation);
+                break;
 
-        if (transform.GetChild(0).gameObject.activeSelf)
-        {
-            if (Input.GetKeyUp(KeyCode.R))
-            {
-                Instantiate(Unit2, position, transform.rotation);
-            }
-        }
+            case 1:
+                Instantiate(Unit2, spawnpoint, transform.rotation);
+                break;
 
-        if (transform.GetChild(0).gameObject.activeSelf)
-        {
-            if (Input.GetKeyUp(KeyCode.T))
-            {
-                Instantiate(Unit3, position, transform.rotation);
-            }
+            case 2:
+                Instantiate(Unit3, spawnpoint, transform.rotation);
+                break;
         }
     }
 }
