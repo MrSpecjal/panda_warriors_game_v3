@@ -3,19 +3,19 @@ using UnityEngine.AI;
 
 public class Movement : MonoBehaviour
 {
-    const int right_mouse_button = 1;
     public static float speed = 10; //szybkosc poruszania sie jednostki
-    private Vector3 targetPosition; //pozycja jednostki
-    private bool isMoving; //czy jednostka sie porusza
     public float ray_range = 10000f;
     public NavMeshAgent agent;
+
+    private const int right_mouse_button = 1;
+    private Vector3 targetPosition; //pozycja jednostki
+    private bool isMoving; //czy jednostka sie porusza
 
     void Start() //inicjalizacja
     {
 
         targetPosition = transform.position;
         isMoving = false;
-
     }
 
     void Update() //raz na klatke

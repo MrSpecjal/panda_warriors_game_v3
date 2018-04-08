@@ -13,6 +13,8 @@ public class TowerMovement : MonoBehaviour
     private NavMeshAgent agent;
     bool isKilled = false;
     private float attackTimer;
+
+
     private void Start()
     {
         attackTimer = 5;
@@ -21,7 +23,7 @@ public class TowerMovement : MonoBehaviour
     }
 
     void Update()
-    {     
+    {
         // AttackSystem();  
         attackTimer -= Time.deltaTime;
         if (enemy != null)
@@ -51,6 +53,7 @@ public class TowerMovement : MonoBehaviour
             //transform.localRotation = Quaternion.RotateTowards(transform.localRotation, Quaternion.Euler(0f, 0f, 0f), Time.deltaTime * rotateSpeed);
             DystanceSystem2();
         }
+
     }
 
     void DystanceSystem()

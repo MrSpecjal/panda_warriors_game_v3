@@ -45,12 +45,12 @@ public class SingleSelection : MonoBehaviour
                     if (hit.collider.tag == "Centrum Dowodzenia")
                     {
                         workersRecruitWindow.SetActive(true);
-                      //  transform.GetChild(0).gameObject.SetActive(true);
+                        transform.GetChild(0).gameObject.SetActive(true);
                     }
                     if (hit.collider.tag == "Koszary")
                     {
                         attackersRecruitWindow.SetActive(true);
-                       // transform.GetChild(0).gameObject.SetActive(true);
+                        transform.GetChild(0).gameObject.SetActive(true);
                     }
                     else
                     {
